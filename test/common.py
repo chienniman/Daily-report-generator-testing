@@ -12,17 +12,17 @@ def setup_driver():
 def upload_files(driver, current_dir):
     # upload monthStocks
     monthStocks_input = driver.find_element(By.ID, "monthStocks")
-    monthStocks_input.send_keys(os.path.join(current_dir, "data/pxmart-data/dp1.csv"))
+    monthStocks_input.send_keys(os.path.abspath(os.path.join(current_dir, os.pardir, "data/pxmart-data/dp1.csv")))
     time.sleep(2)
 
     # upload todaySells
     todaySells_input = driver.find_element(By.ID, "todaySells")
-    todaySells_input.send_keys(os.path.join(current_dir, "data/pxmart-data/sal.csv"))
+    todaySells_input.send_keys(os.path.abspath(os.path.join(current_dir, os.pardir, "data/pxmart-data/sal.csv")))
     time.sleep(2)
 
     # upload dailyKpi
     dailyKpi_input = driver.find_element(By.ID, "dailyKpi")
-    dailyKpi_input.send_keys(os.path.join(current_dir, "data/pxmart-data/kpi.xlsx"))
+    dailyKpi_input.send_keys(os.path.abspath(os.path.join(current_dir, os.pardir, "data/pxmart-data/kpi.xlsx")))
     time.sleep(2)
 
     # click generateReport btn
@@ -48,7 +48,7 @@ def scroll_and_reset(driver):
 def upload_ppt(driver, current_dir):
     # upload xlsx2ppt
     xlsx2ppt_input = driver.find_element(By.ID, "xlsx2ppt")
-    xlsx2ppt_input.send_keys(os.path.join(current_dir, "data/pxmart-data/place.xlsx"))
+    xlsx2ppt_input.send_keys(os.path.abspath(os.path.join(current_dir, os.pardir, "data/pxmart-data/place.xlsx")))
     time.sleep(10)
 
     # scroll to bottom

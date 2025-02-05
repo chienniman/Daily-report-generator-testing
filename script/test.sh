@@ -22,10 +22,16 @@ if [ ! -f "$CHROMEDRIVER" ]; then
   exit 1
 fi
 
+TEST_DIR="./test"
+
 echo "Running local_test.py..."
+cd $TEST_DIR
 python local_test.py
+cd -
 
 sleep 3
 
 echo "Running prd_test.py..."
+cd $TEST_DIR
 python prd_test.py
+cd -
