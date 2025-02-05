@@ -1,1 +1,1 @@
-這裡放自動化測試
+自動化測試 selenium + python
