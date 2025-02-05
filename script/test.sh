@@ -1,8 +1,10 @@
 #!/bin/bash
 
-DATA_DIR="./data/pxmart-data"
+SCRIPT_DIR=$(dirname "$(realpath "$BASH_SOURCE")")
+
+DATA_DIR="$SCRIPT_DIR/../data/pxmart-data"
 REPO_URL="https://github.com/chienniman/pxmart-data.git"
-CHROMEDRIVER="./chromedriver.exe"
+CHROMEDRIVER="$SCRIPT_DIR/../chromedriver.exe"
 
 if [ -d "$DATA_DIR" ]; then
   echo "Data directory exists, pulling latest changes..."
@@ -11,18 +13,18 @@ if [ -d "$DATA_DIR" ]; then
   cd - 
 else
   echo "Data directory does not exist, cloning repository..."
-  mkdir -p ./data
-  cd ./data
+  mkdir -p "$SCRIPT_DIR/../data"
+  cd "$SCRIPT_DIR/../data"
   git clone "$REPO_URL"
   cd -
 fi
 
 if [ ! -f "$CHROMEDRIVER" ]; then
-  echo "chromedriver.exe not found in root directory. Please add it and try again."
+  echo "chromedriver.exe not found in script directory. Please add it and try again."
   exit 1
 fi
 
-TEST_DIR="./test"
+TEST_DIR="$SCRIPT_DIR/../test"
 
 echo "Running local_test.py..."
 cd $TEST_DIR
