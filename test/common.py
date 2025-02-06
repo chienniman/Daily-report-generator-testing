@@ -66,3 +66,8 @@ def click_store_button(driver):
     ok_button = driver.find_element(By.CSS_SELECTOR, 'button.swal2-confirm.swal2-styled')
     ok_button.click()
     time.sleep(3)
+
+def click_download_excel_button(driver):
+    click_download_excel_button = driver.find_element(By.ID, "exportToExcel")
+    click_download_excel_button.click()
+    time.sleep(3)
