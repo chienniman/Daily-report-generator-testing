@@ -55,3 +55,14 @@ def upload_ppt(driver, current_dir):
     pptTableContainer = driver.find_element(By.ID, "pptTableContainer")
     driver.execute_script("arguments[0].scrollIntoView(false);", pptTableContainer)
     time.sleep(3)
+
+def click_store_button(driver):
+    third_tr = driver.find_element(By.XPATH, '//*[@id="resultTable"]/tbody/tr[3]')
+
+    button_td = third_tr.find_element(By.XPATH, './/td/button')
+    button_td.click()
+    time.sleep(2)
+
+    ok_button = driver.find_element(By.CSS_SELECTOR, 'button.swal2-confirm.swal2-styled')
+    ok_button.click()
+    time.sleep(3)
